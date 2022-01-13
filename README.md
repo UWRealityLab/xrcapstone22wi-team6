@@ -4,4 +4,4 @@ Assets options:
 
 https://assetstore.unity.com/packages/3d/environments/pure-nature-188246
 
-https://assetstore.unity.com/packages/templates/packs/retro-mech-simulator-183957?q=flight&orderBy=1
+https://assetstore.unity.com/packages/2d/textures-materials/sky/toon-sky-71840
