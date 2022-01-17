@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PT_Generic_Tree_Trunk_mat
   m_Shader: {fileID: 4800000, guid: 9644638587573544181f148540ce0ce0, type: 3}
-  m_ShaderKeywords: _CUSTOMWIND_ON
+  m_ShaderKeywords: _CUSTOMWIND1_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -63,10 +63,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _CUSTOMCOLORSTINTING: 0
     - _CUSTOMWIND: 1
+    - _CUSTOMWIND1: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -90,8 +92,11 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _WindDensity: 0.2
+    - _WindDensity1: 0.2
     - _WindMovement: 0.47
+    - _WindMovement1: 0.5
     - _WindStrength: 0.014
+    - _WindStrength1: 0.3
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
@@ -99,3 +104,4 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 1, g: 0.1487731, b: 0, a: 1}
     - _TopColor: {r: 0, g: 0.1715357, b: 1, a: 1}
+  m_BuildTextureStacks: []
