@@ -1,0 +1,854 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title Zendin
+
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        // Font Awesome icons (free version)
+        script(src='https://use.fontawesome.com/releases/v5.15.3/js/all.js', crossorigin='anonymous')
+
+        // Google fonts
+        link(href='https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">', rel='stylesheet', type='text/css')
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='css/styles.css', rel='stylesheet')
+
+    body
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+            .container
+                button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    | Menu
+                    i.fas.fa-bars
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ml-auto
+                        li.nav-item
+                            a.nav-link(href='index.html') Home
+                        li.nav-item
+                            a.nav-link(href='about.html') About
+                        li.nav-item
+                            a.nav-link(href='deliverables.html') Deliverables
+                        li.nav-item 
+                            a.nav-link(href='blog.html') Blog
+
+        // Page Header
+        header.masthead(style="background-image: url('assets/img/Meditation_mode.jpg')")
+            .overlay
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        .page-heading
+                            h1 Weekly Blog
+
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog9') Week 10 Blog: Final Stretch
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on June 3, 2021
+                        p
+                            | This week we completed a succcessful dry run of demonstrating our application to our fellow peers and classmates. We are now
+                            | in the final stretch of working toward refining our application and getting our trailer video for demo day.
+                            | Please see our most up to date demo application 
+                            a(href='https://courses.cs.washington.edu/courses/cse481v/21sp/projects/team7/app/') here.
+                            br
+                            img(src='assets/img/zendin_demo.png' width=`800px`)
+                            br
+                        h3 Successes and Accomplishments From This Week
+                        p
+                            | Jane did some user testing of the application, thinking of different combinations actions that the user might take concerning
+                            | the menu. She found a few bugs that happened after playing around with the media controls and activities so she was able to
+                            | update the pause/play/reply/stop buttons and functionalities so that they acted the way that the user would expect them to act.
+                            | The activities also do not overlap each other anymore, so if the user chooses to do meditation, and then chooses to do yoga or
+                            | the breathing exercise, the activites do not overlap.
+                        p
+                            | Phi added a few more yoga scripts and animated routines that we were able to show off during our dry run. The yoga room as well
+                            | was attached to the main building. The user can now follow along the animated yoga routine in a secluded area in the garden.
+                            br
+                            iframe(src='https://www.youtube.com/embed/b2n3nR9ONOE' width='500px' height='400px')
+                            br
+                            i Yoga Room
+                        p
+                            | Hristo worked on improving the performance of the application, thinking of ways to combine entities so that there would be less
+                            | entities overall, overflowing the application. He started to combine the walls of the garden together into one entity, as well as
+                            | combining and reducing the number of clouds as well. We also received feedback that the user should be teleported to the start of
+                            | the clouds and hot springs scenes, so Hristo worked on adding that function of the user being teleported to the part of the garden
+                            | where those scenes start.
+                            br
+                            iframe(src='https://www.youtube.com/embed/eVtvx64oSkI' width='500px' height='400px')
+                            br
+                            i Hot Springs Serenity
+                            br
+                            iframe(src='https://www.youtube.com/embed/ndVo5T3RxZ8' width='500px' height='400px')
+                            br
+                            i Head in the Clouds
+                        p
+                            | Matthew also worked on improving the performance of the application by combining the different static assets in cherry blossom premade garden
+                            | into one model. We also got feedback that the asset placement menu arrows should also be able to be clicked using the raytracer of the left
+                            | hand so Matthew also added that functionality.
+                            br
+                            iframe(src='https://www.youtube.com/embed/ASqYkuz-9jg' width='500px' height='400px')
+                            br
+                            i Asset Menu Arrows
+                            br
+                            | He also worked on improving the breathing exercise meditation making it more user friendly.
+                            br
+                            iframe(src='https://www.youtube.com/embed/fp4ZzXJ996w' width='500px' height='400px')
+                            br
+                            i Improved Breathing Meditation
+                            br
+                        p All of us worked on recording videos and small clips to make up our final demo video.
+                            br
+                            img(src='assets/img/sakura_day.jpg' width=`500px`)
+                            br
+                            img(src='assets/img/sakura_night.jpg' width=`500px`)
+                            br
+                            i Day and Night in Cherry Blossom Garden
+                        h3 Plans for this week
+                        p 
+                        ul
+                            li Everyone: Prepare and finalize promo video and prep for demo day!
+                        h3 Blocking issues
+                        p
+                            | There are some performance issues but no major blockers at the moment.
+
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog8') Week 9 Blog: Home Page, Refined Menu, and Yoga Room
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on May 27, 2021
+                        p
+                            | As we approach demo day, we spent this week we working on refining the application with some significant improvements such as eliminating the number of crashes.
+                            | We added a home page where users can select a garden to join. We also made improvements to the menu as well as added to the yoga experience
+                            | As always you can view the demo application
+                            |
+                            a(href='https://courses.cs.washington.edu/courses/cse481v/21sp/projects/team7/app/') here
+                            br
+                            img(src='assets/img/from-the-stairs.png' width=`800px`)
+                            br
+                            i Overview of a garden
+                        h3 Successes and Accomplishments From This Week
+                        p
+                            | This week Matthew added a home page where users can choose an id for their room or have it auto generated. He also included
+                            | the option for pre-generated gardens. Currently the two pre-generated gardens are 'Cherry Blossoms' and 'Flower Patch'.
+                            | This addition eliminated the need for users to scroll to the end of the url and manually add their id, which is kind of annoying to do
+                            | while using the headset. He also made improvements to the breathing exercise meditation experience with play/pause functionality.
+                            br
+                            iframe(src='https://www.youtube.com/embed/lm9kvODKV60' width='500px' height='400px')
+                            br
+                            i Zendin Home Page walkthrough
+                        p
+                            | Jane and Hristo worked on refining the menu with more features and improved aesthetic. We also refactored the menu a bit to improve the ability to
+                            | add other options of needed. We also changed the location of the lighting and music menu to unify the design.
+                            br
+                            img(src='assets/img/menu-update.jpg' width=`500px`)
+                            br
+                            i Improved menu
+                        p
+                            | The menu also now has improved media key icons with toggling play/pause functionality, a stop button,
+                            | and home button. The home button ends scenes as well as brings the user back to the center of the garden
+                            | if they venture out too far. Below are several clips showcasing the menu.
+                            br
+                            iframe(src='https://www.youtube.com/embed/eR9JXeSThX0' width='500px' height='400px')
+                            br
+                            i Users can now select scene lighting independent of 'meditation mode'
+                            br
+                            iframe(src='https://www.youtube.com/embed/2URIY2Udo2A' width='500px' height='400px')
+                            br
+                            i Overview of new audio menu
+                            br
+                            iframe(src='https://www.youtube.com/embed/RTlb5jt6iDU' width='500px' height='400px')
+                            br
+                            i Home button functionality
+                            br
+                        p 
+                            | This week Phi continued working on the yoga experience for the application with an addition of a yoga room.
+                            | He started switching over the previous yoga routine to use the animated model.
+                            br
+                            img(src='assets/img/yogaroom.jpg' width=`400px`)
+                            br
+                            i Preview of yoga room
+                        
+                        h3 Plans for this week
+                        p 
+                        ul
+                            li Phi: Write blog. Finish up animated yoga routine
+                            li Everyone: Work on reducing entities of base scene. Fix any bugs that arise. Improve overall app performance. Work on promo video. Prep for demo day!
+                        h3 Blocking issues
+                        p
+                            | We currently do not have any pressing issues for up ahead other than working on improving performance issues for the
+                            | smoothest user experience in time for demo day.
+
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog7') Week 8 Blog: Menu Controls, Yoga, and Hot Springs
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on May 20, 2021
+                        p
+                            | This week we worked on various stretch goals. As we received feedback about
+                            | focusing on making what we currently have better, we turned our focus toward
+                            | what other activities and traits could be added in order to elevate the experience of the user.
+                            | As always, you can view our current project
+                            a(href='https://courses.cs.washington.edu/courses/cse481v/21sp/projects/team7/app/') here.
+
+                            br
+                            img(src='assets/img/center_building.png' width=`500px`)
+                            br
+                            i A new center building to fit the aesthetic of the overall garden.
+                        h3 Successes and Accomplishments From This Week
+                        p
+                            | Thinking about how the menu is laid out and what would be most beneficial in elevating the user experience, Jane
+                            | continued to work on the audio and display portion of the menu. She continued to improve upon what she had been working
+                            | since last week, which was the new layout for the audio menu, as well as adding the "settings" portion below the main
+                            | menu, so that the user could easily access the audio menu. As well as that audio menu, she worked on getting a Display
+                            | set up so that the user could know which background music was playing in the Zen garden, as well as which activity they
+                            | were currently doing (e.g. yoga, mediation, etc), and the volume, which they can adjust with the audio volume bar.
+                            br
+                            img(src='assets/img/menu-3.gif' width=`500px`)
+                            br
+                            i New Audio and Disply Menu
+                        p
+                            | As mentioned last week, there are a lot of buttons and controls that the user needs to control. Hristo finished working
+                            | on and adding introductory videos that the user could see within the walls of the building in which they first spawn in. Hristo finalized
+                            | those videos so now the user is able to see guide videos on the various functionalities that the user can do, such as placing objects,
+                            | teleportation and navigating the menu. Phi also worked on drawing up a more detailed controler diagram, where the user can clearly see
+                            | which controllers and buttons the user can use for the various functionalities of the garden. Now the user can see exaclty
+                            | which buttons on the Oculus controllers they can use to go about the garden.
+                            br
+                            iframe(src='https://www.youtube.com/embed/ZAExoRKcObw' width='500px' height='400px')
+                            br
+                            i Control Room
+                            br
+                            img(src='assets/img/zendin-controls.png' width=`600px`)
+                            br
+                            i Detailed Control diagram
+                        p
+                            | Matthew started working on the animating the yoga models that we had recently purchased. He worked on adding
+                            | an api for interacting with the animated yoga figures, so that the user can follow along with the actual yoga
+                            | models, which would be easier to see and follow along for the user. Next steps would be to create a yoga routine using the
+                            | animated yoga models, which Phi is also working on. Phi also finalized the yoga controls (skip through slides, pause, etc)
+                            | and is continuing to work on integrating those controsl to the yoga animations, as well as making a yoga routine.
+                            br
+                            iframe(src='https://www.youtube.com/embed/6jb2J5ongzU' width='500px' height='400px')
+                            br
+                            i Sample Yoga Animations
+                        p
+                            | Continuing to think along the lines of user experience, Hristo worked on adding a really cool scene and option for the user when in meditation
+                            | mode. The user can now follow a designated path up the mountain terrain, outside of the garden, that leads to a hot springs. Although the user
+                            | cannot feel the water in the hot springs, it is very cool to see how the hands can still interact with the water. We also had some user feedback
+                            | that the orange color of the lanterns during meditation mode may not be right for everyone so the hot springs mediation mode has blue lights in
+                            | the lanterns.
+                            br
+                            iframe(src='https://www.youtube.com/embed/aUfq7NMwBfY' width='500px' height='400px')
+                            br
+                            i Mountain Hot Springs Playthrough
+                            br
+                            iframe(src='https://www.youtube.com/embed/Ha_wtavNVL4' width='500px' height='400px')
+                            br
+                            i In Hot Springs
+                        h3 Plans for this week
+                        p 
+                            | We are on the right track as of right now. Main big aspects we would like to accomplish is concerning yoga and successfully
+                            | using the yoga models. Other than that we will continue to work on improving the aesthetic and functionalities of what we currently
+                            | have to continue to improve upon the user experience.
+                        ul
+                            li Hristo: Write blog, work on making the menu more cohesive, add scenery assets to the mountain path.
+                            li Phi and Matthew: Add yoga model animations to the yoga scene. Make yoga routines that user can follow using yoga models and animations.
+                            li Jane: Add user ability and funtionality to adjust lighting in scene.
+                            li Everyone: Keep an eye out on the different bugs that might cause occasional crashing and functionalities to not work. Continue to add to the aesthetic and anything that can improve the overall user experience.
+                        h3 Blocking issues
+                        p
+                            | We did encounter a never before seen bug where the menu did not show up during our demonstration today at the open house.
+                            | We think it may be just due to the fact that we were casting, have multiple people in the same room at a time, plus
+                            | sharing screens on zoom. But looking out for those bugs that caused the error may be a difficult thing and a blocker for us.
+                            | Other than that we are on the right track and are mainly focusing on fixing things that we already have.
+                        
+
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog6') Week 7 Blog: Various Garden Improvements
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on May 13, 2021
+                        p
+                            | This week we worked on various features that we felt needed
+                            | improvement after our MVP and started looking into and designing various stretch goals
+                            | that we would like to add to our product in the coming weeks. As like last week, our current
+                            | project may be viewed
+                            a(href='') here.
+                        h3 Successes and Accomplishments From This Week
+                        p 
+                            | After realizing that there are many controls that players must know to fully take
+                            | advantage of the application, Hristo added an introduction scene that the player
+                            | is loaded into on startup. The player now comes in outside the garden in a shrine
+                            | with instructions for how to use the controllers. Hristo also added in new wall assets
+                            | that greatly improved our application's performance and fixed some issues with jitter in the new walls he added.
+                            br
+                            img(src='assets/img/tutorial-wip-1.gif' width=`400px`)
+                            br
+                            i Tutorial room work in progress
+                        p
+                            | For our MVP, some of the audio was not properly being played or was delayed in loading
+                            | and playing after the user selected some music. Jane worked on fixing these audio related
+                            | issues so now audio handling is much improved. Furthermore, Jane added pause/play
+                            | functionality to the audio menu. This was integrated into the yoga and meditation scripts
+                            | so now the user may pause them when needed. Jane is currently working on improving the main menu U/I
+                            | so the user may select from tabs to change music and other scene elements such as lighting.
+                            br
+                            img(src='assets/img/new_menu.gif' width='600px')
+                            br
+                            i New menu design that can house more tools
+                        p
+                            | After feedback from the MVP presentation, Matthew experimented with a drag and drop
+                            | asset placement mechanism meant to improve the feel of placing items. Now, the user places an 
+                            | item by opening up the asset placement menu and using their other hand to drag and drop the
+                            | item into the scene. Furthermore, to fill out the asset placement menu, Matthew also increased
+                            | the number of placable assets in the asset menu from ~16 to 60. Matthew also continued to improve
+                            | the breath meditation feedback mechanism and now we have a working solution.
+                            br
+                            img(src='assets/img/new-assets.PNG' width='1000px')
+                            br
+                            i Some of the new assets we now have integrated into the asset menu
+                            br
+                            iframe(src='https://www.youtube.com/embed/ygGmowWtc9s' width='600px' height='400px')
+                            iframe(src='https://www.youtube.com/embed/Nw9-g6lSnnE' width='600px' height='400px')
+                            br
+                            i Meditation ring demo and new asset placement demo
+                            br
+                        p
+                            | Phi continued work on improving the yoga tools. He has added the ability to play and pause a yoga routine
+                            | and also move on to the next yoga routine. He also procured the 3D yoga assets and is starting to
+                            | work with these assets to get animations working properly.
+                            br
+                            iframe(src='https://youtube.com/embed/yTXp8q2P37c' width='600px' height='400px')
+                            br
+                            i
+                            br
+                        p
+                            | As a group, we tried to diagnose some of the multiplayer issues that arose in previous weeks.
+                            | In particular, the asset placement menu was bugging out when multiple people attempted to
+                            | place assets but changes to the menu seems to have resolved whatever issues there have been related
+                            | to this. Also, after people gave feedback that it would be better for each person to control their own
+                            | lighting and music, we now do not mirror any of this information between user browsers. We are still looking
+                            | into an effective way to introduce synchronized meditation or yoga that would also allow the user
+                            | to have a personal meditation session if they want. Finally, we had some fun stress testing the garden to see
+                            | how many high poly items we could place before FPS dropped off on the Oculus Quest 2, and got up to ~200 items.
+                            br
+                            img(src='assets/img/garden-stress-test.PNG' width='600px')
+                            br
+                            i Lots of assets in the scene before major latency!
+                        h3 Plan for Next Week
+                        p
+                            | We will focus on fleshing out the yoga features without the feedback portion of this project
+                            | yet implemented. We will also finish some of the menu improvements that were being made this week and
+                            | add another scene location to the garden that users may meditate at in the mountains that surround the garden.
+                            | This will build upon the cloud meditation mode that allows you to climb to the clouds to get a better view of the
+                            | surroundings and garden (see video below).
+                            | There are also some weird bugs related to using the meditation menu in multiplayer that we are still
+                            | trying to pinpoint, so we will all be working on fixing this as well.
+                            br
+                            iframe(src='https://www.youtube.com/embed/Bu1CJvhR2cg' width='600px' height='400px')
+                            br
+                            i Quick demo of cloud meditation for reference
+                        ul
+                            li Jane: Write blog, finish changes to menu UI
+                            li Phi and Matthew: Add yoga model animations to the yoga scene. Fill out the preexisting yoga routines so there are 3 yoga routines. Add ability for user to create a custom yoga routine by appending yoga routines on to each other.
+                            li Hristo: Add mountain meditation scene to the application.
+                        h3 Blocking Issues
+                        p
+                            | Currently we are on track to meet our goals established in the PRD except for yoga post estimation.
+                            | We believe this is not something that we can realistically integrate into our existing application
+                            | in 2.5 weeks since it would require an external camera and GPU server, not to mention all the front 
+                            | end related work that would be needed once we finish getting the infrastructure set up and finish training
+                            | a model to classify yoga poses. This is something that we are interested in doing but it might have to wait
+                            | until after week 10.
+
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog5') Week 6 Blog: Minimum Viable Garden
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on May 6, 2021
+                        p
+                            | This week, we focused on preparing for our MVP presentation and bringing all our features
+                            | together so we could show them off! Our yoga system was integrated into our selection menu 
+                            | next to meditation and we added a handy music menu for selecting what you want to play.
+                            | Additionally, we added a new background to round out our scenery, nesting our zen garden 
+                            | in a valley of gorgeous mountains.
+                        h3 Successes and Accomplishments From This Week
+                        p
+                            | We worked on putting the parts together that Hristo edited into our MVP video!
+                            strong You can check out our video
+                            strong
+                                a(href='https://www.youtube.com/watch?v=7TtIuLnE7-M') here.
+                        p
+                            | Hristo added some new mountains in the background to frame the surroundings and improve
+                            | the aesthetic.
+                            br
+                            img(src='assets/img/background-1.png' width='600px')
+                            img(src='assets/img/background-2.png' width='600px')
+                            br
+                            i Garden in the valley
+                        p
+                            | Jane developed a menu panel to show off all our music options and a sleek new horizontal 
+                            | volume bar to go along with it.
+                        p 
+                            | Matthew refined and enhanced our breath capture system with multiple rings as a part of 
+                            | our menu too.
+                        p 
+                            | Phi added the narration and images for the short yoga routine to show in our MVP.
+                        h3 Plan for Next Week
+                        p
+                            | We'll continue to expand the features of our app - improving our UI, adding new content for
+                            | mediation and yoga, and adding some options for our users to change their environment (lighting,
+                            | background, etc.)
+                        ul
+                            li Jane and Matthew:
+                                ul
+                                    li Add new music and make adjustments to current UI for music selection
+                                        ul 
+                                            li Improve how our system currently handles playing audio
+                                    li Improve detection of breath tracking tool
+                            li Matthew: Write blog
+                            li Phi and Hristo:
+                                ul
+                                    li Replace old walls with new ones 
+                                    li Add options to user for changing environment 
+                                        ul 
+                                            li Create the new settings for the environment
+                                    li Add cloud hopping functionality for meditation
+
+                        h3 Blocking Issues
+                        p
+                            | Testing the multiplayer aspect of our garden for the first time for our MVP caused some unfortunate bugs, like the placement
+                            | of objects being undone. So far we've stuck to just one person in a room placing the items as we iron out the kinks of working 
+                            | in multiplayer.
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog4') Week 5 Blog: Yoga and Meditation Exploration
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on 29 April 2021
+                        p
+                            | This week was spent exploring both meditation and yoga experiences. We expanded on the groundwork
+                            | that we set up the previous week as well as resolving several bugs. Also we transfered our development
+                            | environment from Glitch to local development with VSCode and the Live Server extension. Although this week was a busy
+                            | and hectic week for everyone, we were still able to make solid progress.
+                        h3 Successes and Accomplishments From This Week
+                        p
+                            | Matthew started researching and developing feedback for meditation mode. Users can use this feature by either lying down
+                            | or standing and holding or placing the controller on their belly. The current implementation
+                            | tracks the users controllers as they inhale/exhale and provides visual feedback with a ring that
+                            | dynamically resizes with each breath. Breath tracking can currently accessed through the meditation menu and pressing the
+                            strong x-button
+                            | once it is selected in the menu. It can also be removed using the same button.
+                            br
+                            img(src='assets/img/breath-ring.gif' width='600px')
+                            br
+                            i Current breath capture feedback mechanism
+                        p
+                            | Hristo and Jane worked on designing and improving the menu interface that we started last week. New additions
+                            | include additional info text for each option as well as a volume slider. Jane made the menu items usable
+                            | by integrating the meditation audios/scripts that she recorded and edited as well as the sounds she compiled. So far each
+                            | meditation option plays a recording when clicked, but the yoga options are still currently placeholders. Jane also
+                            | started implementing sound and music selection to give users finer control of the soundscape. Currently the menu can
+                            | be activated and deactivated by pressing the
+                            strong a-button
+                            | and options can be selected using the
+                            strong right trigger.
+                            br
+                            img(src='assets/img/menu-1.gif' width='600px')
+                            br
+                            i Menu with options and sliders
+                        p
+                            | Hristo also tried adjusting the lighting of the scene since the colors seemed a bit dull. He also tried adjusting
+                            | shadows to improve immersion and the overall aesthetic.
+                            br
+                            img(src='assets/img/regular_mode.jpg' width='600px')
+                            br
+                            i Previous scene lighting
+
+                            br
+                            img(src='assets/img/improved-light.png' width='600px')
+                            br
+                            i Improved scene lighting
+                        p
+                            | Phi worked on developing the yoga experience with recorded scripts as well as a display that leads a yoga session.
+                            | He used some of his prior yoga experience to create slides with instructions as well as drawings with poses.
+                            | Currently users do not use their controllers during a yoga session.
+                            br
+                            img(src='assets/img/YogaDemo2.png' width='600px')
+                            br
+                            i Snapshot of yoga routine
+                        p
+                            | Matthew also started implementing a home screen for users to select their room but that is still a work in progress.
+                            | Jane also tried animating the sky, but proved harder than we initially thought it would be. We are currently exploring
+                            | other methods of adding life to the sky like 3D cloud and star models.
+                            | Overall, we feel as though we made decent progress this week.
+                            strong You can track our development
+                            strong
+                                a(href='https://github.com/UWRealityLab/xrcapstone22wi-team6') here.
+                            strong You can view the live prototype application
+                            strong
+                                a(href='https://courses.cs.washington.edu/courses/cse481v/21sp/projects/team7/app/') here.
+                        h3 Plan for Next Week
+                        p
+                            | We will connect the experiences together and unify them with the menu to have our Minimum Viable Product (MVP) in time for the midterm
+                            | presentation on May 4th. Also taking care of bugs that have surfaced.
+                        ul
+                            li Phi and Jane:
+                                ul
+                                    li Record meditation tutorial, add soundtrack to the application
+                                    li Improve look and feel of meditation tool
+                                        ul
+                                            li Fine tune scene lighting and sound to improve the tool
+                                    li Add meditation tutorial to walk user through how to meditate
+                                        ul 
+                                            li Initial proof of concept will be text based and plays through without pauses or interaction
+                            li Phi: Write blog
+                            li Matthew and Hristo:
+                                ul
+                                    li Continue working on meditation
+                                    li Integrate exhale/inhale tool into meditation tool
+                                        ul
+                                            li Very simple feedback to user - user specifies variable inhale/exhale time that they shall attempt to meet, UI provides feedback about if they are meeting their breathing goal
+                                    li Research techniques that may be feasible for classifying yoga poses (whether that be using classical pose estimation approaches or machine learning)
+                                        ul
+                                            li Start with extracting data from the Oculus's head/hand controls
+
+                        h3 Blocking Issues
+                        p
+                            | This past week has been been a slightly slower week because we are 'getting into the thick of the quarter' - Phi. But, most things are coming together and mostly depend on connecting
+                            | the different elements together into a cohesive project. There are still some small hurdles that we may encounter in doing this, but we currently do not have any apparent blockers.
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog3') Week 4 Blog: Groundwork for Meditation and Relaxation
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on 22 April 2021
+                        p
+                            | This week started off with a successfully completed PRD and continuing the development of our
+                            | various ideas for the project. The base of the customization of the garden as well as the start
+                            | of the meditation activity of this app had been set so this week we spent a lot of time cleaning
+                            | up small bugs and diving deeper into the activities part of our project, where the user will be
+                            | able to participate in various relaxing activities in their zen garden.
+
+                        h3 Successes and accomplishments from this week
+                        p
+                            | Matthew was able to figure out how to add the rotation aspect when placing on object on the floor.
+                            | Instead of the small preview that was there before, when the user wants to place an asset in their
+                            | garden, they will have an accurate representation of how the asset would look like when placed. This
+                            | includes the orientation of the object in relation to the zen garden. There were a few bugs with the
+                            | rotation from the previously small preview of the asset to the rotation of the actual size asset but
+                            | making the preview of the asset the actual size of the asset itself seemed to work well.
+                            br
+                            img(src='assets/img/rotation.gif' width='500px')
+                            br
+                            i Showcasing the rotation functionality when placing down assets.
+                        p
+                            | Matthew also continues to work on and manage the multiplayer component of this zen garden, continuing to 
+                            | make sure that the different activities such as meditation are working on all views of the players. He has
+                            | also been working on fixing up bugs from the open source code that we utilized.
+                        p
+                            | Jane continued to work on the meditation UI. She designed what "meditation mode" would look like, one of
+                            | which was to have lanterns around the garden or close by that would light up, giving off a soft glow look
+                            | which would light up as the sky dimmed, shifting the garden into "meditation mode". She started off by 3d modelling
+                            | the "meditaion building", which for now is the big structure/room in the middle of the garden. She did not 
+                            | have much luck on having that lantern glow effect, but Hristo was able to 3d model some awesome lanterns and lights 
+                            | that would illuminate when the user enters meditation mode. Hristo also added the functionality of when the user
+                            | teleports into the meditation room, "meditation mode" would be triggered and untriggered, so the user will enter
+                            | "meditation mode" by teleporting into the room.
+                            br
+                            img(src='assets/img/meditation_demo.gif' width='500px')
+                            br
+                            i Showcasing how meditation mode is triggered.
+                            br
+                            img(src='assets/img/regular_mode.jpg' width='500px')
+                            br
+                            i The Meditation Building in the Zen Garden
+                            br
+                        p
+                            | Jane is now working on finding more music appropriate for meditation and yoga in the future. She uses preview music from
+                            | the Adobe stock library, to preview what kind of music would be part of this zen garden simulation. Jane has also been
+                            | writing meditation scripts and narrating them. She is also working on some audio editing to combine the scripts with music.
+                        p
+                            | Hristo, along with working on the "meditation mode", continued to work on the locomotion and teleportation functionality of our project. 
+                            | Last week for our demo, we had different bases where the user can teleport to and move around the garden. But now, the user is
+                            | able to use the joystick on the right hand controller to navigate anywhere on the ground of the garden.
+                            br
+                            img(src='assets/img/teleportation.gif' width='500px')
+                            br
+                            i Showcasing how the user can now teleport anywhere in the garden.
+                            br
+                        p
+                            | Hristo is now working on the Meditation UI, how the user can choose between different types of meditation scripts, (along with how
+                            | this UI could also be used with yoga), and also what kind of UI the user will see in order to choose different background music and
+                            | dimming the surroundings.
+                            br
+                            img(src='assets/img/menu.gif' width='500px')
+                            br
+                            i Showcasing what the menu of choosing which meditation mode/yoga/music the user wants.
+                            br
+                        p
+                            | Phi started to work on the yoga component of our vr application. He set up a really cool layout of having a slideshow and timer that
+                            | the user can follow along with different poses. He set up instructional slides, as well as slides and graphics that help the user
+                            | to follow along with the yoga routine. He also added a timer to demonstrate how the user can see when they should go onto the next
+                            | pose. But Phi also noticed that it may be difficult for the user to try and look at the slides while doing the pose, so maybe next steps
+                            | in developing this would be to add a voice narration for the user to follow along, as well as the slides.
+                            br
+                            img(src='assets/img/yoga_1.png' width='500px')
+                            br
+                            img(src='assets/img/yoga_2.png' width='500px')
+                            br
+                            i Showcasing what the slideshow for the yoga tutorial would look like.
+                            br
+                        p
+                            | Overall, we feel as though we made lots of great progress this week. As noted before, we are developing our codebase in Glitch and using 
+                            | Github for version control. This is the link to our ongoing project development
+                            a(href='https://glitch.com/edit/#!/team-7-glitch-workspace') here.
+                            strong You can view the live prototype application
+                            strong
+                                a(href='https://team-7-glitch-workspace.glitch.me/xrcapstone22wi-team6/app/') here.
+                        h3 Plan for Next Week
+                        p
+                            | We will finish wrapping up the main parts of the meditation portion of our application and also continue to fix minor details. But we will
+                            | also start working on the aethetics and what the user sees as well.
+                        ul
+                            li Phi and Jane:
+                                ul
+                                    li Finish design of initial meditation tool with a working proof of concept
+                                    li Find ambient forest sound
+                                        ul
+                                            li The user may select from waterfall noises, rain, morning birds, etc.
+                                    li Ambient forest noise shall be present at all times playing beneath any other music
+                                        ul 
+                                            li Test overlaying multiple audio sources at once
+                                    li Replace placeholder background with a moving sky image
+                            li Hristo: Write blog
+                            li Hristo and Matthew:
+                                ul
+                                    li Design home page one enters when loading the game along with options to join and existing garden or create a new garden.
+                                        ul
+                                            li When entering, a room id is displayed to the user.
+                                            li The user may select the max number of people permitted in a garden during garden creation.
+                                    li Start breath tracking as a standalone application not integrated into the meditation tool.
+                                        ul
+                                            li Identify when user exhales/inhales 
+                                    li Improve lighting
+                                        ul
+                                            li Lighting is currently very gaudy and does not look good, adjust the A-Frame lighting so it looks more natural.
+
+                        h3 Blocking Issues
+                        p.
+                            This past week has been going relatively smoothly. We may run into some blockers when working on user breath tracking, and lighting
+                            in aframe has been a tricky ride. Also, we are out of disk space on glitch... so that is problematic. But it seems like we will be able
+                            to switch and work from gitlab so we hope that will solve that problem. We still have a good vision and idea of what we should do for our tasks, however, so as of right now
+                            we don't forsee any major blocking issues for the upcoming week.
+
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog2') Week 3 Blog: Planting Seeds for our Zen Garden Experience
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on 15 April 2021
+                        p
+                            | This was our first week where we started developing many of the ideas we have been sketching
+                            | out. We also made some great progress on fleshing out our
+                            a(href='deliverables.html#prd') product requirement document
+                            | (PRD). We also completed out
+                            a(href='deliverables.html#project-pitch') project pitch.
+                            | We are excited to review the progress we made this week and get started with our tasks for
+                            | next week.
+
+                        h3 What every member did and Project Resources
+                        p
+                            | Collectively, we worked on the project presentation due April 13. We also split up
+                            | responsibilities related to the PRD, then worked together to nail down the scope of the
+                            | project and what we wanted to focus on each week. Particularly, after our presentation we
+                            | realized that the meditation/yoga aspect was a more appealing feature than we previously realized
+                            | so we tailored our PRD so that our garden customization is still present but simple so we can focus on interesting
+                            | meditation tools.
+                        p 
+                            | Furthermore, we each started designing particular base components of our simulation that
+                            | would be needed no matter what stretch goals we decided to focus on. In particular, Phi found
+                            | some UI components that we could plug into our application and after deciding on a design Matthew
+                            | ported the UI component from a
+                            a(href='https://github.com/kfarr/aframe-city-builder/tree/f7f7c9c9ade67daa0c3d89c4aeb7f9021ad794d8') city builder game
+                            | to work on the Oculus 2 with our plant assets. Similarly Phi got some basic
+                            | asset placement and movement working with the UI. A simple way of undoing the last placed asset was added as well.
+                            br
+                            img(src='assets/img/palette.gif' width='500px')
+                            br
+                            i Showcasing initial prototype of the asset placement UI.
+                        p
+                            | Since we wanted some simple multiplayer interactions in our garden, Matthew set up Croquet integration
+                            | with the project. This facilitates unique "rooms" that can be accessed by anyone by typing in a "room id".
+                            | They can thus enter a room with others and view any modifications to the room and see the other players in the room 
+                            | since assets are mirrored over using Croquet's view/model system.
+                        p
+                            | We also needed a simple way to navigate around the garden, so Hristo researched some teleportation based locomotion
+                            | techniques and integrated a teleportation based system into our project with predefined checkpoints that the user
+                            | may select to teleport to.
+                            br
+                            img(src='assets/img/teleport-base.gif' width='500px')
+                            br
+                            i Showcasing initial teleport prototype
+                        p
+                            | Jane focused first on getting music working in A-Frame using
+                            a(href='') this music management component.
+                            | Once that was complete, she started developing what the meditation UI should look like and what sort of
+                            | information we are going to be recording and giving feedback about to the user.
+                        p
+                            | We also had some fun with blender to get some basic low-poly plants to interact with in our garden.
+                            | Hristo, for example, made this nice looking cherry-blossom asset.
+                            img(src='assets/img/cherry-blossom.png')
+                        p
+                            | All in all, good progress was made this week. We are developing our codebase in Glitch and using Github for version
+                            | control, so you can see our ongoing project development
+                            a(href='https://glitch.com/edit/#!/team-7-glitch-workspace') here.
+                            strong You can view the prototype application
+                            strong
+                                a(href='https://team-7-glitch-workspace.glitch.me/xrcapstone22wi-team6/app/') here.
+
+                        h3 Plan for Next Week
+                        p.
+                            Next week we plan on finishing up some of the bugs that we have yet to resolve in the UI and
+                            start working on the meditation aspect of the project. In particular, we have assigned ourselves
+                            the following:
+                        ul
+                            li Hristo and Jane:
+                                ul
+                                    li Finish basic locomotion
+                                    li A more elegant asset shall be used to mark a teleportation site
+                                    li Start work on meditation-specific UI, add in music selection and integrate locomotion into the UI
+                                        ul
+                                            li User may select from a number of soundtracks
+                                            li The user can select from a menu which meditation technique to use, what music should play, if they would like to teleport, and music volume
+                                            li The UI component shall be the same as that used in asset placement
+                                            li Write script for initial meditation tutorial
+                            li Phi and Matthew:
+                                ul
+                                    li Finish asset placement UI.
+                                        ul
+                                            li The y component of the left joystick shall allow the user to rotate the sample object in the user’s hand and when placed the object shall reflect this angle.
+                                            li The bug in the asset placement UI that causes the right arrow to intermittently disappear shall be resolved
+                                            li Add option for up/down arrows to menu UI to be used in meditation UI
+                                    li Investigate meditation feedback mechanisms that may be used to monitor the user
+                                        ul
+                                            li Use phone to monitor heart rate
+                                            li Test oculus quest speaker system, see if microphone can capture breathing
+                                            li Explore possibility of webcam capture for capturing body positions
+
+                        h3 Blocking Issues
+                        p.
+                            We believe we have a good grasp of what our initial product should look like, the
+                            only thing left now is to continue to implement it! Right now there are a lot of tasks to do, all of which
+                            are currently going smoothly so we don't forsee any major blocking issues the next week.
+
+        // Post Content
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='blog1') Week 2 Blog: Hello VR-World
+                        span.meta
+                            | Posted by
+                            a(href='#!') AR/VR Capstone Team 7
+                            | on 8 April 2021
+                        p.
+                            In our first week, we got ourselves oriented with the tools we would be
+                            using through the WebXR tutorial and discovered possible interesting
+                            technologies we could use for our project in Glitch and Croquet through
+                            the class tutorials. We created a team discord and set about coming up
+                            with an idea for our project.
+                        p.
+                            We bounced around several before coming up with the idea of a virtual zen
+                            garden - with Zendin as our working title! The idea of having a customizable,
+                            relaxing open space in the virtual world was something that we all liked the
+                            idea of and we came up with plenty of possible extensions from this - meditation,
+                            gardening, yoga, and more! Virtual spaces can offer a new social outlet in an
+                            interesting medium, and the pandemic has shown how sometimes we all need to get
+                            away to our own space, which our virtual zen garden is an option we’re hoping to provide.
+
+                        img(src='assets/img/garden.png')
+                        br
+                        i A serene image of a garden Jane found for our design ideas.
+
+                        ul
+                            li Hristo took the role of team lead for our first team meeting to pitch our product idea and helped write up our product pitch.
+                            li Jane researched design ideas and 3D models for our project, and also helped write our product pitch.
+                            li Matt designed and got our website up and running on Github Pages, and worked on 3D modeling.
+                            li Phi set up the team discord and wrote this first blog post!
+
+                        img(src='assets/img/trees.png')
+                        br
+                        i A sleek low-poly style proposed by Hristo.
+
+                        br
+
+                        img(src='assets/img/walls.png')
+                        br
+                        i A fitting boundary for a zen garden Matt modeled.
+
+                        p.
+                            We feel like we’ve made some great progress together already and we’re excited to get
+                            started creating the basics of our virtual world together! For next week, we’ve scheduled
+                            some meetings already to hash out the details of our product pitch presentation and our
+                            project requirements document, so we have a solid base to build on while developing.
+                hr
+
+        hr
+        // Footer
+        footer
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        ul.list-inline.text-center
+                            li.list-inline-item
+                                a(href='https://github.com/UWRealityLab/xrcapstone22wi-team6')
+                                    span.fa-stack.fa-lg
+                                        i.fas.fa-circle.fa-stack-2x
+                                        i.fab.fa-github.fa-stack-1x.fa-inverse
+                        p.copyright.text-muted Copyright &copy; Zendin 2021
+
+        // Bootstrap core JS
+        script(src='https://code.jquery.com/jquery-3.5.1.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js')
+
+        // Core theme JS
+        script(src='js/scripts.js')

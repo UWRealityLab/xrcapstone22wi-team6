@@ -1,0 +1,164 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title Zendin
+
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        // Font Awesome icons (free version)
+        script(src='https://use.fontawesome.com/releases/v5.15.3/js/all.js', crossorigin='anonymous')
+
+        // Google fonts
+        link(href='https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">', rel='stylesheet', type='text/css')
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='css/styles.css', rel='stylesheet')
+
+    body
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+            .container
+                button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    | Menu
+                    i.fas.fa-bars
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ml-auto
+                        li.nav-item
+                            a.nav-link(href='index.html') Home
+                        li.nav-item
+                            a.nav-link(href='about.html') About
+                        li.nav-item
+                            a.nav-link(href='deliverables.html') Deliverables
+                        li.nav-item 
+                            a.nav-link(href='blog.html') Blog
+
+        // Page Header
+        header.masthead(style="background-image: url('assets/img/about-header-background.jpg')")
+            .overlay
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        .page-heading
+                            h1 About Team Zendin
+
+        div
+            .container
+                article
+                    .container
+                        .row
+                            .col-lg-8.col-md-10.mx-auto
+                                h2 What is Zendin?
+                                p
+                                    | Zendin is a game that provides a relaxing and fun space for players to interact with. This game provides an interactive zen garden simulation that you and your friends can collaborate in to create your own zen garden in virtual reality. Along with spatial customization, Zendin will include a meditation feature that teaches you how to meditate and gives you tools to customize your meditation experience. Our stretch goals include capturing and giving feedback about yoga poses teach people yoga.
+
+                h2(class="my-4") Meet the Team
+                .row
+                    .col-lg-6.mb-4
+                        .card.h-100
+                            img.card-img-top(src="assets/img/hristo.png")
+                            .card-body
+                                h4.card-title Hristo Ramirez-Diaz
+                                p.card-text
+                                    | Hello! I'm a senior computer engineering student at UW. My first experience with VR was through a cardboard headset and now I'm looking forward to developing a VR application.
+                                .row
+                                    .col-lg-8.col-md-10.mx-auto
+                                        ul.list-inline.text-center
+                                            il.list-inline-item
+                                                a(href="https://www.linkedin.com/in/hristoramirezdiaz")
+                                                    span.fa-stack.fa-sm
+                                                        i.fas.fa-circle.fa-stack-2x
+                                                        i.fab.fa-linkedin.fa-stack-1x.fa-inverse
+                                            il.list-inline-item
+                                                a(href="https://github.com/hristoramirez")
+                                                    span.fa-stack.fa-sm
+                                                        i.fas.fa-circle.fa-stack-2x
+                                                        i.fab.fa-github.fa-stack-1x.fa-inverse
+                    .col-lg-6.mb-4
+                        .card.h-100
+                            img.card-img-top(src="assets/img/phi.jpg")
+                            .card-body
+                                h4.card-title Phi That Ton
+                                p.card-text
+                                    | Heyo! I'm a computer science senior at UW and a big fan of VR and its many applications, but I'm most interested by the potential of interactivity in gaming.
+                                .row
+                                    .col-lg-8.col-md-10.mx-auto
+                                        ul.list-inline.text-center
+                                            il.list-inline-item
+                                                a(href="https://www.linkedin.com/in/phi-ton-6a9031105/")
+                                                    span.fa-stack.fa-sm
+                                                        i.fas.fa-circle.fa-stack-2x
+                                                        i.fab.fa-linkedin.fa-stack-1x.fa-inverse
+                                            il.list-inline-item
+                                                a(href="https://github.com/phiphphi")
+                                                    span.fa-stack.fa-sm
+                                                        i.fas.fa-circle.fa-stack-2x
+                                                        i.fab.fa-github.fa-stack-1x.fa-inverse
+                    .col-lg-6.mb-4
+                        .card.h-100
+                            img.card-img-top(src="assets/img/jane.jpg")
+                            .card-body
+                                h4.card-title Jane Higa
+                                p.card-text 
+                                    | Hello! I am a senior computer science student at UW. It is my first time working with VR/AR technology so I am very excited to learn more and go through the development process of building a VR application.
+                                .row
+                                    .col-lg-8.col-md-10.mx-auto
+                                        ul.list-inline.text-center
+                                            il.list-inline-item
+                                                a(href="https://www.linkedin.com/in/jane-higa")
+                                                    span.fa-stack.fa-sm
+                                                        i.fas.fa-circle.fa-stack-2x
+                                                        i.fab.fa-linkedin.fa-stack-1x.fa-inverse
+                                            il.list-inline-item
+                                                a(href="https://github.com/jane-8")
+                                                    span.fa-stack.fa-sm
+                                                        i.fas.fa-circle.fa-stack-2x
+                                                        i.fab.fa-github.fa-stack-1x.fa-inverse
+                    .col-lg-6.mb-4
+                        .card.h-100
+                            img.card-img-top(src="assets/img/matthew.jpg")
+                            .card-body
+                                h4.card-title Matthew Arnold
+                                p.card-text
+                                    | Hi! I'm a computer engineering student at UW with a background in systems programming and am excited to work with VR/AR technology for the first time.
+                                .row
+                                    .col-lg-8.col-md-10.mx-auto
+                                        ul.list-inline.text-center
+                                            il.list-inline-item
+                                                a(href="https://www.linkedin.com/in/matthew-arnold-01")
+                                                    span.fa-stack.fa-sm
+                                                        i.fas.fa-circle.fa-stack-2x
+                                                        i.fab.fa-linkedin.fa-stack-1x.fa-inverse
+                                            il.list-inline-item
+                                                a(href="https://gitlab.com/MatthewArnold")
+                                                    span.fa-stack.fa-sm
+                                                        i.fas.fa-circle.fa-stack-2x
+                                                        i.fab.fa-gitlab.fa-stack-1x.fa-inverse
+
+        hr
+        // Footer
+        footer
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        ul.list-inline.text-center
+                            li.list-inline-item
+                                a(href='https://github.com/UWRealityLab/xrcapstone22wi-team6.git')
+                                    span.fa-stack.fa-lg
+                                        i.fas.fa-circle.fa-stack-2x
+                                        i.fab.fa-github.fa-stack-1x.fa-inverse
+                        p.copyright.text-muted Copyright &copy; TODO 2021
+
+        // Bootstrap core JS
+        script(src='https://code.jquery.com/jquery-3.5.1.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js')
+
+        // Core theme JS
+        script(src='js/scripts.js')

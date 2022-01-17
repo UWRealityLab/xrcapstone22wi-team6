@@ -1,0 +1,94 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title Zendin
+
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        // Font Awesome icons (free version)
+        script(src='https://use.fontawesome.com/releases/v5.15.3/js/all.js', crossorigin='anonymous')
+
+        // Google fonts
+        link(href='https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">', rel='stylesheet', type='text/css')
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='css/styles.css', rel='stylesheet')
+
+    body
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+            .container
+                button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    | Menu
+                    i.fas.fa-bars
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ml-auto
+                        li.nav-item
+                            a.nav-link(href='index.html') Home
+                        li.nav-item
+                            a.nav-link(href='about.html') About
+                        li.nav-item
+                            a.nav-link(href='deliverables.html') Deliverables
+                        li.nav-item 
+                            a.nav-link(href='blog.html') Blog
+
+        // Page Header
+        header.masthead(style="background-image: url('assets/img/Meditaiton_mode_2.jpg')")
+            .overlay
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        .page-heading
+                            h1 Deliverables
+
+        // Post Content
+        article
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        h2(id='app') Zendin Demo 
+                        p To start, click on app/. You can join the same room as someone else by setting the ?q= code to theirs.
+                        strong You can check out our project
+                        strong
+                            a(href='https://courses.cs.washington.edu/courses/cse481v/21sp/projects/team7/') here.
+
+                        h2(id='prd') Project Requirement Document
+
+                        object(data='assets/deliverables/PRD.pdf' type='application/pdf' width='960px' height='800px')
+
+                        h2(id='midterm-presentation') Midterm Presentation
+
+                        iframe(width="960" height="569" src="https://docs.google.com/presentation/d/e/2PACX-1vRuMtX9vg22h2pnbjAd-9-m0zQAvVh0hjKMhIQDQgvgCvvPsgj-ZIznpwmUHP-xW52BxWFfLLJXU1Gl/embed?start=false&loop=false&delayms=60000")
+
+                        h2(id='project-pitch') Project Pitch
+
+                        iframe(width='960px' height='569px' src='https://docs.google.com/presentation/d/e/2PACX-1vRCedpTEQm77bHXrFXUKReT1VsU65VKtY_I46yFyD3HmTm7SoiXrAXhWLa9UEpc36CkZTPRZ2Qw7Ycc/embed?start=false&loop=false&delayms=60000')
+
+        hr
+        // Footer
+        footer
+            .container
+                .row
+                    .col-lg-8.col-md-10.mx-auto
+                        ul.list-inline.text-center
+                            li.list-inline-item
+                                a(href='https://github.com/UWRealityLab/xrcapstone22wi-team6.git')
+                                    span.fa-stack.fa-lg
+                                        i.fas.fa-circle.fa-stack-2x
+                                        i.fab.fa-github.fa-stack-1x.fa-inverse
+                        p.copyright.text-muted Copyright &copy; TODO 2021
+
+        // Bootstrap core JS
+        script(src='https://code.jquery.com/jquery-3.5.1.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js')
+
+        // Core theme JS
+        script(src='js/scripts.js')
