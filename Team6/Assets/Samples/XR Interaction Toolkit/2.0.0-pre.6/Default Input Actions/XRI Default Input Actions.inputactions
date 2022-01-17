@@ -1086,10 +1086,10 @@
                 },
                 {
                     "name": "",
-                    "id": "045818c1-97e8-4c21-b441-dcbc22ebfdd1",
+                    "id": "d2273811-1252-4802-8629-a5f7efb216bd",
                     "path": "<XRController>{RightHand}/primary2DAxis",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "groups": "Continuous Move",
                     "action": "Move",
                     "isComposite": false,
