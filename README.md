@@ -1,6 +1,6 @@
 # xrcapstone22wi-team6
 
-Assets options:
+Assets Options:
 
 Environment:
 
