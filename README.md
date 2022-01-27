@@ -28,3 +28,7 @@ https://assetstore.unity.com/packages/2d/textures-materials/beautiful-sky-208439
 Planes:
 
 https://assetstore.unity.com/packages/3d/vehicles/air/airplane-cockpits-168487
+
+https://assetstore.unity.com/packages/3d/vehicles/air/rusty-plane-161892
+
+https://assetstore.unity.com/packages/3d/environments/airplanes-airport-with-props-192684
