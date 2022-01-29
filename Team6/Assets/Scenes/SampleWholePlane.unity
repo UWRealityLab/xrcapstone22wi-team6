@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.36496004, g: 0.5607272, b: 0.686767, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -275,6 +275,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &211787322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9131859547997866441, guid: ede375fa023cef64cbef944cb32947b5, type: 3}
+  m_PrefabInstance: {fileID: 575817181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &287178219
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +369,7 @@ GameObject:
   - component: {fileID: 292373641}
   - component: {fileID: 292373640}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: RightCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,6 +639,7 @@ GameObject:
   - component: {fileID: 402774636}
   - component: {fileID: 402774635}
   - component: {fileID: 402774637}
+  - component: {fileID: 402774638}
   m_Layer: 0
   m_Name: XR Origin2
   m_TagString: Untagged
@@ -666,7 +672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402774631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 8.16}
+  m_LocalPosition: {x: 0, y: 10, z: 8.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 575817182}
@@ -711,7 +717,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402774631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04582e2823e234d42a3270e85e771c5f, type: 3}
   m_Name: 
@@ -725,13 +731,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402774631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e30bd683dd635428b94f31b46004e89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 1
+  rightController: {fileID: 1939417201}
+--- !u!114 &402774638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402774631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e330d2f67846545b1ab205d7ce2202f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityChangeMagtitude: 1
+  angleChangeMagtitude: 1
   rightController: {fileID: 292373638}
+  leftController: {fileID: 1939417201}
+  gameBody: {fileID: 211787322}
 --- !u!1 &515505423
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,7 +897,7 @@ MonoBehaviour:
   m_GravityApplicationMode: 0
   m_ForwardSource: {fileID: 0}
   m_LeftHandMoveAction:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Left Hand Move
       m_Type: 0
@@ -886,7 +909,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_RightHandMoveAction:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Right Hand Move
       m_Type: 0
@@ -2467,7 +2490,7 @@ GameObject:
   - component: {fileID: 1939417204}
   - component: {fileID: 1939417203}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: LeftCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
