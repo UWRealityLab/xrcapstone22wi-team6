@@ -34,7 +34,8 @@ public class Altitude : MonoBehaviour
             Debug.Log(_body.velocity.magnitude);
             if (_body.velocity.magnitude > 0.5f)
             {
-                _body.velocity *= (_body.velocity.magnitude - 0.5f) / _body.velocity.magnitude;
+                // _body.velocity *= (_body.velocity.magnitude - 0.5f) / _body.velocity.magnitude;
+                _body.velocity *= _body.velocity.magnitude * 4 / 5;
             }
             else if (_body.velocity.magnitude > 0)
             {
