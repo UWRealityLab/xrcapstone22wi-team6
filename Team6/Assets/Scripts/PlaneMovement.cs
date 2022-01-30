@@ -9,7 +9,7 @@ public class PlaneMovement : MonoBehaviour
     [SerializeField] private float angleChangeMagtitude = 1.0f;
 
     private float maxAngle = 100f; 
-    private float speed = 1f; 
+    private float speed = 5f; 
 
     public GameObject rightController;  // the right controller, should be drag by the client
     public GameObject leftController;  // the left controller, should be drag by the client
