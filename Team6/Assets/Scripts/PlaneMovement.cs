@@ -7,6 +7,7 @@ public class PlaneMovement : MonoBehaviour
     // [SerializeField] private InputActionReference AccelerateActionReference;
     [SerializeField] private float velocityChangeMagtitude = 1.0f;
     [SerializeField] private float angleChangeMagtitude = 1.0f;
+    [SerializeField] private InputActionReference actionReference;
 
     private float maxAngle = 100f; 
     private float speed = 5f; 
@@ -55,27 +56,32 @@ public class PlaneMovement : MonoBehaviour
     //  if 350-360 or 0 to 90 -> go dowm
     void FixedUpdate()
     {
-        // float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
-        // float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
-        float angleX = checkAngle(rotateVertically() + _bodyTransform.eulerAngles.x);
-        float angleY = checkAngle(rotateHorizontally() + _bodyTransform.eulerAngles.y);
-        
-       
-        // Rotate the cube by converting the angles into a quaternion.
-        // Quaternion target = Quaternion.Euler(angleX, _bodyTransform.eulerAngles.y, _bodyTransform.eulerAngles.z);
+        if (actionReference.action.IsPressed())
+        {
+            // float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
+            // float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
+            float angleX = checkAngle(rotateVertically() + _bodyTransform.eulerAngles.x);
+            float angleY = checkAngle(rotateHorizontally() + _bodyTransform.eulerAngles.y);
+            // The side way should lean the way my controller leans regardless of where it was
+            float angleZ = checkAngle(rotateSideway());
 
-        // Dampen towards the target rotation
-        // _bodyTransform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime);
-        // still some bugs for adding the rotation:
-        // When you read the .eulerAngles property, Unity converts the Quaternion's internal representation of the rotation to Euler angles. Because, there is more than one way to represent any given rotation using Euler angles, the values you read back out may be quite different from the values you assigned. This can cause confusion if you are trying to gradually increment the values to produce animation.
-        // https://docs.unity3d.com/ScriptReference/Transform-eulerAngles.html
-        _bodyTransform.eulerAngles = new Vector3(angleX, angleY, _bodyTransform.eulerAngles.z);
 
-        // transform.rotation *= Quaternion.AngleAxis(angleX, Vector3.right);
-        
-        // recalculate the velocity
-        // _body.velocity = _bodyTransform.forward * _body.velocity.magnitude;
-        // _body.AddForce(_bodyTransform.forward * 10.0f);
+            // Rotate the cube by converting the angles into a quaternion.
+            // Quaternion target = Quaternion.Euler(angleX, _bodyTransform.eulerAngles.y, _bodyTransform.eulerAngles.z);
+
+            // Dampen towards the target rotation
+            // _bodyTransform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime);
+            // still some bugs for adding the rotation:
+            // When you read the .eulerAngles property, Unity converts the Quaternion's internal representation of the rotation to Euler angles. Because, there is more than one way to represent any given rotation using Euler angles, the values you read back out may be quite different from the values you assigned. This can cause confusion if you are trying to gradually increment the values to produce animation.
+            // https://docs.unity3d.com/ScriptReference/Transform-eulerAngles.html
+            _bodyTransform.eulerAngles = new Vector3(angleX, angleY, angleZ);
+
+            // transform.rotation *= Quaternion.AngleAxis(angleX, Vector3.right);
+
+            // recalculate the velocity
+            // _body.velocity = _bodyTransform.forward * _body.velocity.magnitude;
+            // _body.AddForce(_bodyTransform.forward * 10.0f);
+        }
         _bodyTransform.position += _bodyTransform.forward * Time.deltaTime * speed;
     }
 
@@ -94,14 +100,36 @@ public class PlaneMovement : MonoBehaviour
 
     private float rotateHorizontally() 
     {
-        float angle = checkAngle(_leftTransform.eulerAngles.z - _bodyTransform.eulerAngles.z);
+        float angle = checkAngle((_leftTransform.eulerAngles.z + _rightTransform.eulerAngles.z)/2
+                                    - _bodyTransform.eulerAngles.z);
         if (angle >= 10f && angle < 120f) {
-            return - angle / maxAngle * angleChangeMagtitude;
+            return -angle / maxAngle * angleChangeMagtitude;
         } 
 
         if (angle >= 250f && angle < 350f) {
-            return - (angle - 360f) / maxAngle * angleChangeMagtitude;
+            return -(angle - 360f) / maxAngle * angleChangeMagtitude;
         } 
+
+        return 0.0f;
+    }
+
+    private float rotateSideway()
+    {
+        float angle = checkAngle((_leftTransform.eulerAngles.z + _rightTransform.eulerAngles.z) / 2
+                                    - _bodyTransform.eulerAngles.z);
+        if (angle >= 10f && angle < 120f)
+        {
+            // The 45f represents something very different than angleChange. Instead it's the maxinum
+            // of angle for the plane sideways.
+            // The current game is not so smooth here and I am think some
+            // function is needed so that it's not continous propotional but curved.
+            return angle / maxAngle * 45f;
+        }
+
+        if (angle >= 250f && angle < 350f)
+        {
+            return (angle - 360f) / maxAngle * 45f;
+        }
 
         return 0.0f;
     }
@@ -109,7 +137,8 @@ public class PlaneMovement : MonoBehaviour
     // this is for rotate up and down
     private float rotateVertically() {
 
-        float angle = checkAngle(_leftTransform.eulerAngles.x - _bodyTransform.eulerAngles.x);
+        float angle = checkAngle((_leftTransform.eulerAngles.x + _rightTransform.eulerAngles.x) / 2
+                                    - _bodyTransform.eulerAngles.x);
         // float angle =  _leftTransform.localEulerAngles.x;
 
         if ((angle >= 0f && angle < 90f) || angle > 350f) {
