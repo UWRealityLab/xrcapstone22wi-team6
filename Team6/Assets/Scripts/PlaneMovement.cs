@@ -7,7 +7,7 @@ public class PlaneMovement : MonoBehaviour
 {
     // [SerializeField] private InputActionReference AccelerateActionReference;
     [SerializeField] private float velocityChangeMagtitude = 1.0f;
-    [SerializeField] private float angleChangeMagtitude = 1.0f;
+    [SerializeField] private float angleChangeMagtitude = 0.5f;
     [SerializeField] private InputActionReference actionReference;
 
     private float maxAngle = 100f; 
