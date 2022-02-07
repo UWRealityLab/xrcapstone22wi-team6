@@ -18,9 +18,6 @@ public class PlaneMovement : MonoBehaviour
     public GameObject leftController;  // the left controller, should be drag by the client
     public GameObject gameBody;  // the left controller, should be drag by the client
 
-    // private float period = 0.5f;
-    // private float nextActionTime;
-
     private Rigidbody _body; // this should be the whole plane
     
     private Transform _leftTransform;
@@ -30,28 +27,12 @@ public class PlaneMovement : MonoBehaviour
 
     void Start()
     {
-        // nextActionTime = 0.0f;
         _body = GetComponent<Rigidbody>();
-        // jumpActionReference.action.performed += OnAccelerate;
-        // jumpActionReference.action.performed += OnDecelerate;
         _bodyTransform = _body.transform;
         _rightTransform = rightController.GetComponent<Transform>();
         _leftTransform = leftController.GetComponent<Transform>();
-        // _body.velocity = Vector3.forward * 5f;
         _text = panel.GetComponent<Text>();
     }
-
-    // // increase the velocity magtitude
-    // private void OnAccelerate(InputAction.CallbackContext obj)
-    // {
-    //     _body.velocity += Vector3.up * jumpForce;
-    // }
-
-    // // decrease the velocity magtitude
-    // private void OnDecelerate(InputAction.CallbackContext obj)
-    // {
-    //     _body.velocity += Vector3.up * jumpForce;
-    // }
 
     // when the joystick panel is horizontal and the ring is pointing forward => transform.x = 0
     // when the joystick panel is vertical and the ring is pointing down => transform.x = 90
@@ -120,6 +101,7 @@ public class PlaneMovement : MonoBehaviour
         return angel;
     }
 
+    // calculate the rotation angle Yaw axis
     private float rotateHorizontally() 
     {   
         float angle = checkAngle(_bodyTransform.eulerAngles.z);
@@ -134,6 +116,7 @@ public class PlaneMovement : MonoBehaviour
         return 0.0f;
     }
 
+    // calculate the rotation angle roll axis
     private float rotateSideway()
     {
         // we only change of both are in the same angle range
@@ -157,15 +140,14 @@ public class PlaneMovement : MonoBehaviour
     }
 
     // this is for rotate up and down
+    // calculate the rotation angle pitch axis
     private float rotateVertically() {
 
         float angle = checkAngle((_leftTransform.eulerAngles.x + _rightTransform.eulerAngles.x) / 2
                                     - _bodyTransform.eulerAngles.x);
-        // float angle =  _leftTransform.localEulerAngles.x;
 
         if ((angle >= 0f && angle < 90f) || angle > 350f) {
 
-            // GoDown();
             if (angle < 100f) {
                 angle += 360f;
             }
@@ -175,23 +157,10 @@ public class PlaneMovement : MonoBehaviour
         } 
         
         if (angle >= 220f && angle < 320f) {
-            // GoUp();
             return (angle - 320f) / maxAngle * angleChangeMagtitude;
         }
 
         return 0f;
-    }
-
-    private void GoDown()
-    {
-        //_body.AddForce(Vector3.up*jumpForce);
-        _body.velocity = Vector3.down * velocityChangeMagtitude;
-    }
-
-    private void GoUp()
-    {
-        //_body.AddForce(Vector3.up*jumpForce);
-        _body.velocity = Vector3.up * velocityChangeMagtitude;
     }
 }
 
