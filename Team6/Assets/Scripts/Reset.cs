@@ -13,14 +13,12 @@ public class Reset : MonoBehaviour
         body = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (transform.position.y < -1) {
-            body.position = start;
-            body.velocity = Vector3.zero;
-            body.angularVelocity = Vector3.zero;
-        }
+        body.position = start;
+        body.velocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
     }
+
 
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlaneMovement : MonoBehaviour
@@ -10,8 +11,9 @@ public class PlaneMovement : MonoBehaviour
     [SerializeField] private InputActionReference actionReference;
 
     private float maxAngle = 100f; 
-    private float speed = 5f; 
+    private float speed = 5f;
 
+    public GameObject panel;
     public GameObject rightController;  // the right controller, should be drag by the client
     public GameObject leftController;  // the left controller, should be drag by the client
     public GameObject gameBody;  // the left controller, should be drag by the client
@@ -24,6 +26,7 @@ public class PlaneMovement : MonoBehaviour
     private Transform _leftTransform;
     private Transform _rightTransform;
     private Transform _bodyTransform;
+    private Text _text;
 
     void Start()
     {
@@ -35,6 +38,7 @@ public class PlaneMovement : MonoBehaviour
         _rightTransform = rightController.GetComponent<Transform>();
         _leftTransform = leftController.GetComponent<Transform>();
         // _body.velocity = Vector3.forward * 5f;
+        _text = panel.GetComponent<Text>();
     }
 
     // // increase the velocity magtitude
@@ -83,6 +87,11 @@ public class PlaneMovement : MonoBehaviour
             // _body.AddForce(_bodyTransform.forward * 10.0f);
         }
         _bodyTransform.position += _bodyTransform.forward * Time.deltaTime * speed;
+        _text.text = "Speed: " + speed;
+        _text.text += "\nRotations(x, y, z): \n"
+            + _bodyTransform.eulerAngles.x + "°, "
+            + _bodyTransform.eulerAngles.y + "°, "
+            + _bodyTransform.eulerAngles.z + "°";
     }
 
 
