@@ -60,6 +60,7 @@ public class PlaneMovement : MonoBehaviour
     //  if 350-360 or 0 to 90 -> go dowm
     void FixedUpdate()
     {
+        // if the button is pressed, we will change the rotations of the plane
         if (actionReference.action.IsPressed())
         {
             // float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
@@ -67,7 +68,7 @@ public class PlaneMovement : MonoBehaviour
             float angleX = checkAngle(rotateVertically() + _bodyTransform.eulerAngles.x);
             float angleY = checkAngle(rotateHorizontally() + _bodyTransform.eulerAngles.y);
             // The side way should lean the way my controller leans regardless of where it was
-            float angleZ = checkAngle(rotateSideway());
+            float angleZ = checkAngle(rotateSideway() + _bodyTransform.eulerAngles.z);
 
 
             // Rotate the cube by converting the angles into a quaternion.
@@ -85,6 +86,18 @@ public class PlaneMovement : MonoBehaviour
             // recalculate the velocity
             // _body.velocity = _bodyTransform.forward * _body.velocity.magnitude;
             // _body.AddForce(_bodyTransform.forward * 10.0f);
+        } else {
+            // we will reset the rotation in Z to 0 gradually
+            if (_bodyTransform.eulerAngles.z > 1f && _bodyTransform.eulerAngles.z < 359f) {
+                float angleZ = _bodyTransform.eulerAngles.z - 1f;
+                if (_bodyTransform.eulerAngles.z > 180f) {
+                    angleZ = _bodyTransform.eulerAngles.z + 1f;
+                }
+
+                _bodyTransform.eulerAngles = new Vector3(_bodyTransform.eulerAngles.x, _bodyTransform.eulerAngles.y, angleZ);
+            } else {
+                 _bodyTransform.eulerAngles = new Vector3(_bodyTransform.eulerAngles.x, _bodyTransform.eulerAngles.y, 0f);
+            }
         }
         _bodyTransform.position += _bodyTransform.forward * Time.deltaTime * speed;
         _text.text = "Speed: " + speed;
@@ -108,14 +121,13 @@ public class PlaneMovement : MonoBehaviour
     }
 
     private float rotateHorizontally() 
-    {
-        float angle = checkAngle((_leftTransform.eulerAngles.z + _rightTransform.eulerAngles.z)/2
-                                    - _bodyTransform.eulerAngles.z);
-        if (angle >= 10f && angle < 120f) {
+    {   
+        float angle = checkAngle(_bodyTransform.eulerAngles.z);
+        if (angle >= 5f && angle < 105f) {
             return -angle / maxAngle * angleChangeMagtitude;
         } 
 
-        if (angle >= 250f && angle < 350f) {
+        if (angle >= 255f && angle < 355f) {
             return -(angle - 360f) / maxAngle * angleChangeMagtitude;
         } 
 
@@ -124,20 +136,21 @@ public class PlaneMovement : MonoBehaviour
 
     private float rotateSideway()
     {
+        // we only change of both are in the same angle range
         float angle = checkAngle((_leftTransform.eulerAngles.z + _rightTransform.eulerAngles.z) / 2
                                     - _bodyTransform.eulerAngles.z);
-        if (angle >= 10f && angle < 120f)
+        if (angle >= 5f && angle < 105f)
         {
             // The 45f represents something very different than angleChange. Instead it's the maxinum
             // of angle for the plane sideways.
             // The current game is not so smooth here and I am think some
             // function is needed so that it's not continous propotional but curved.
-            return angle / maxAngle * 45f;
+            return angle * angle / maxAngle / maxAngle * 2;
         }
 
-        if (angle >= 250f && angle < 350f)
+        if (angle >= 255f && angle < 355f)
         {
-            return (angle - 360f) / maxAngle * 45f;
+            return (angle - 360f) * (360f - angle) / maxAngle / maxAngle * 2;
         }
 
         return 0.0f;
