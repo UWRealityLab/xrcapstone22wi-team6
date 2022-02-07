@@ -86,6 +86,7 @@ public class PlaneMovement : MonoBehaviour
             + _bodyTransform.eulerAngles.x + "°, "
             + _bodyTransform.eulerAngles.y + "°, "
             + _bodyTransform.eulerAngles.z + "°";
+        _text.text += "\nPress \"A\" to reset the game!";
     }
 
 
