@@ -5,13 +5,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class PlaneMovement : MonoBehaviour
 {
-    // [SerializeField] private InputActionReference AccelerateActionReference;
+    [SerializeField] private InputActionReference accelerateActionReference;
     [SerializeField] private float velocityChangeMagtitude = 1.0f;
     [SerializeField] private float angleChangeMagtitude = 0.5f;
     [SerializeField] private InputActionReference actionReference;
 
     private float maxAngle = 100f; 
-    private float speed = 5f;
+    private float speed;
 
     public GameObject panel;
     public GameObject rightController;  // the right controller, should be drag by the client
@@ -27,6 +27,7 @@ public class PlaneMovement : MonoBehaviour
 
     void Start()
     {
+        speed = 5f;
         _body = GetComponent<Rigidbody>();
         _bodyTransform = _body.transform;
         _rightTransform = rightController.GetComponent<Transform>();
@@ -44,6 +45,13 @@ public class PlaneMovement : MonoBehaviour
         // if the button is pressed, we will change the rotations of the plane
         if (actionReference.action.IsPressed())
         {
+            Vector2 speedChange = accelerateActionReference.action.ReadValue<Vector2>();
+            if (speedChange[1] > 0.1 && speed <= 39.5f) {
+                speed += 0.05f;
+            } else if (speedChange[1] < -0.1 && speed > 1.05f) {
+                speed -= 0.05f;
+            }
+
             // float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
             // float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
             float angleX = checkAngle(rotateVertically() + _bodyTransform.eulerAngles.x);
