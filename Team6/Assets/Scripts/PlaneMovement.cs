@@ -5,13 +5,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class PlaneMovement : MonoBehaviour
 {
-    // [SerializeField] private InputActionReference AccelerateActionReference;
+    [SerializeField] private InputActionReference accelerateActionReference;
     [SerializeField] private float velocityChangeMagtitude = 1.0f;
     [SerializeField] private float angleChangeMagtitude = 0.5f;
     [SerializeField] private InputActionReference actionReference;
 
     private float maxAngle = 100f; 
-    private float speed = 5f;
+    private float speed;
 
     public GameObject panel;
     public GameObject rightController;  // the right controller, should be drag by the client
@@ -27,6 +27,7 @@ public class PlaneMovement : MonoBehaviour
 
     void Start()
     {
+        speed = 5f;
         _body = GetComponent<Rigidbody>();
         _bodyTransform = _body.transform;
         _rightTransform = rightController.GetComponent<Transform>();
@@ -44,12 +45,27 @@ public class PlaneMovement : MonoBehaviour
         // if the button is pressed, we will change the rotations of the plane
         if (actionReference.action.IsPressed())
         {
+            Vector2 speedChange = accelerateActionReference.action.ReadValue<Vector2>();
+            if (speedChange[1] > 0.1 && speed <= 39.5f) {
+                speed += 0.05f;
+            } else if (speedChange[1] < -0.1 && speed > 1.05f) {
+                speed -= 0.05f;
+            }
+
             // float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
             // float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
             float angleX = checkAngle(rotateVertically() + _bodyTransform.eulerAngles.x);
-            float angleY = checkAngle(rotateHorizontally() + _bodyTransform.eulerAngles.y);
+            float angleY = checkAngle(rotateHorizontally()/3 + _bodyTransform.eulerAngles.y);
             // The side way should lean the way my controller leans regardless of where it was
             float angleZ = checkAngle(rotateSideway() + _bodyTransform.eulerAngles.z);
+            if (angleZ > 30f && angleZ < 180f)
+            {
+                angleZ = 30f;
+            }
+            else if (angleZ < 330f && angleZ >= 180f)
+            {
+                angleZ = 330f;
+            }
 
 
             // Rotate the cube by converting the angles into a quaternion.
@@ -123,7 +139,7 @@ public class PlaneMovement : MonoBehaviour
         // we only change of both are in the same angle range
         float angle = checkAngle((_leftTransform.eulerAngles.z + _rightTransform.eulerAngles.z) / 2
                                     - _bodyTransform.eulerAngles.z);
-        if (angle >= 5f && angle < 105f)
+        if (angle >= 0f && angle < 105f)
         {
             // The 45f represents something very different than angleChange. Instead it's the maxinum
             // of angle for the plane sideways.
@@ -132,7 +148,7 @@ public class PlaneMovement : MonoBehaviour
             return angle * angle / maxAngle / maxAngle * 2;
         }
 
-        if (angle >= 255f && angle < 355f)
+        if (angle >= 255f && angle < 359f)
         {
             return (angle - 360f) * (360f - angle) / maxAngle / maxAngle * 2;
         }
