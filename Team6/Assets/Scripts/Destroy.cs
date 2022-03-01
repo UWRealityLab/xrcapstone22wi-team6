@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Destroy : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.gameObject.tag == "box")
-        {
-            Destroy(this.gameObject, 1);
-        }
+        Destroy(this.gameObject);
     }
 }

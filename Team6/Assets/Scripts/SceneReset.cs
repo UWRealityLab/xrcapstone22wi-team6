@@ -20,4 +20,9 @@ public class SceneReset : MonoBehaviour
     {
         SceneManager.LoadScene("SampleWholePlane");
     }
+
+    public void Tutor()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }
