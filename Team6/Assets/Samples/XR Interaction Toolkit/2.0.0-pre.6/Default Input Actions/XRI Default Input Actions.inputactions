@@ -807,6 +807,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "d4e05051-38a9-4b33-afa7-99f323d426b8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1192,6 +1201,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bddfac3a-cc70-4dab-8ce9-04986147c768",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Skip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

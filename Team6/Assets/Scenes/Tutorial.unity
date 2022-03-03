@@ -1159,7 +1159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41a30ddd5dce45f8a933a740b9080c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionReference: {fileID: 5163983532249338921, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  resetBinding: {fileID: 5163983532249338921, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  skipBinding: {fileID: 8980314806446131814, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   tutorial_stage: 1
 --- !u!4 &411001813
 Transform:
@@ -2052,6 +2053,8 @@ MonoBehaviour:
   velocityChangeMagtitude: 1
   angleChangeMagtitude: 1
   actionReference: {fileID: -1436228959542622504, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  coins: 0
+  coins_total: 0
   panel: {fileID: 255673247}
   rightController: {fileID: 1496864296}
   leftController: {fileID: 576324021}
