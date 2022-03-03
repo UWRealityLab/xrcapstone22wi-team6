@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Reset : MonoBehaviour
-{
+{ 
     private Vector3 start;
     private Rigidbody body;
 
