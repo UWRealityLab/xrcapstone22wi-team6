@@ -25,6 +25,8 @@ public class PlaneMovement : MonoBehaviour
     private Transform _bodyTransform;
     private Text _text;
 
+    private SceneReset sceneReset;
+
     void Start()
     {
         speed = 5f;
@@ -33,6 +35,8 @@ public class PlaneMovement : MonoBehaviour
         _rightTransform = rightController.GetComponent<Transform>();
         _leftTransform = leftController.GetComponent<Transform>();
         _text = panel.GetComponent<Text>();
+
+        sceneReset = GameObject.Find("SceneManager").GetComponent<SceneReset>();
     }
 
     // when the joystick panel is horizontal and the ring is pointing forward => transform.x = 0
@@ -45,44 +49,44 @@ public class PlaneMovement : MonoBehaviour
         // if the button is pressed, we will change the rotations of the plane
         if (actionReference.action.IsPressed())
         {
-            Vector2 speedChange = accelerateActionReference.action.ReadValue<Vector2>();
-            if (speedChange[1] > 0.1 && speed <= 39.5f) {
-                speed += 0.05f;
-            } else if (speedChange[1] < -0.1 && speed > 1.05f) {
-                speed -= 0.05f;
+            if (sceneReset.tutorial_stage == 1) {
+                sceneReset.tutorial_stage += 1;
+            } else {
+                Vector2 speedChange = accelerateActionReference.action.ReadValue<Vector2>();
+                if (speedChange[1] > 0.1 && speed <= 39.5f) {
+                    if (sceneReset.tutorial_stage == 2) {
+                        sceneReset.tutorial_stage += 1;
+                    }
+                    speed += 0.05f;
+                } else if (speedChange[1] < -0.1 && speed > 1.05f) {
+                    if (sceneReset.tutorial_stage == 3) {
+                        sceneReset.tutorial_stage += 1;
+                    }
+                    speed -= 0.05f;
+                }
+
+                // float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
+                // float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
+                float angleX = checkAngle(rotateVertically() + _bodyTransform.eulerAngles.x);
+                float angleY = checkAngle(rotateHorizontally()/3 + _bodyTransform.eulerAngles.y);
+                // The side way should lean the way my controller leans regardless of where it was
+                float angleZ = checkAngle(rotateSideway() + _bodyTransform.eulerAngles.z);
+                if (angleZ > 30f && angleZ < 180f)
+                {
+                    angleZ = 30f;
+                }
+                else if (angleZ < 330f && angleZ >= 180f)
+                {
+                    angleZ = 330f;
+                }
+
+                // Dampen towards the target rotation
+                // _bodyTransform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime);
+                // still some bugs for adding the rotation:
+                // When you read the .eulerAngles property, Unity converts the Quaternion's internal representation of the rotation to Euler angles. Because, there is more than one way to represent any given rotation using Euler angles, the values you read back out may be quite different from the values you assigned. This can cause confusion if you are trying to gradually increment the values to produce animation.
+                // https://docs.unity3d.com/ScriptReference/Transform-eulerAngles.html
+                _bodyTransform.eulerAngles = new Vector3(angleX, angleY, angleZ);
             }
-
-            // float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
-            // float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
-            float angleX = checkAngle(rotateVertically() + _bodyTransform.eulerAngles.x);
-            float angleY = checkAngle(rotateHorizontally()/3 + _bodyTransform.eulerAngles.y);
-            // The side way should lean the way my controller leans regardless of where it was
-            float angleZ = checkAngle(rotateSideway() + _bodyTransform.eulerAngles.z);
-            if (angleZ > 30f && angleZ < 180f)
-            {
-                angleZ = 30f;
-            }
-            else if (angleZ < 330f && angleZ >= 180f)
-            {
-                angleZ = 330f;
-            }
-
-
-            // Rotate the cube by converting the angles into a quaternion.
-            // Quaternion target = Quaternion.Euler(angleX, _bodyTransform.eulerAngles.y, _bodyTransform.eulerAngles.z);
-
-            // Dampen towards the target rotation
-            // _bodyTransform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime);
-            // still some bugs for adding the rotation:
-            // When you read the .eulerAngles property, Unity converts the Quaternion's internal representation of the rotation to Euler angles. Because, there is more than one way to represent any given rotation using Euler angles, the values you read back out may be quite different from the values you assigned. This can cause confusion if you are trying to gradually increment the values to produce animation.
-            // https://docs.unity3d.com/ScriptReference/Transform-eulerAngles.html
-            _bodyTransform.eulerAngles = new Vector3(angleX, angleY, angleZ);
-
-            // transform.rotation *= Quaternion.AngleAxis(angleX, Vector3.right);
-
-            // recalculate the velocity
-            // _body.velocity = _bodyTransform.forward * _body.velocity.magnitude;
-            // _body.AddForce(_bodyTransform.forward * 10.0f);
         } else {
             // we will reset the rotation in Z to 0 gradually
             if (_bodyTransform.eulerAngles.z > 1f && _bodyTransform.eulerAngles.z < 359f) {
@@ -96,13 +100,58 @@ public class PlaneMovement : MonoBehaviour
                  _bodyTransform.eulerAngles = new Vector3(_bodyTransform.eulerAngles.x, _bodyTransform.eulerAngles.y, 0f);
             }
         }
+
         _bodyTransform.position += _bodyTransform.forward * Time.deltaTime * speed;
-        _text.text = "Speed: " + speed;
-        _text.text += "\nRotations(x, y, z): \n"
-            + _bodyTransform.eulerAngles.x + "°, "
-            + _bodyTransform.eulerAngles.y + "°, "
-            + _bodyTransform.eulerAngles.z + "°";
-        _text.text += "\nPress \"A\" to reset the game!";
+
+        if (sceneReset.tutorial_stage == -1) {
+            _text.text = "Speed: " + speed;
+            _text.text += "\nRotations(x, y, z): \n"
+                + _bodyTransform.eulerAngles.x + "°, "
+                + _bodyTransform.eulerAngles.y + "°, "
+                + _bodyTransform.eulerAngles.z + "°";
+            _text.text += "\nPress \"A\" to reset the game!";
+        } else if (sceneReset.tutorial_stage == 0) {
+            _text.text = "Cngratulations! Now try to get through all the boxes!\n";
+            _text.text += "Press \"A\" to enter the exploration mode!";
+        } else if (sceneReset.tutorial_stage == 1) {
+            _text.text = "We are expected you to seat while playing our game\n";
+            _text.text = "You should also hold the controllers vertically (slightly face upward).\n";
+            _text.text += "Stage 1: Enter control mode\n";
+            _text.text += "\t Hold the Grip buttons for both hands to enter control mode.\n";
+            _text.text += "\t The Grip button are used to enter the control mode.\n";
+            _text.text += "\t You must bold the Grip buttons if you want to change\n";
+            _text.text += "\t the movements of the plane";
+        } else if (sceneReset.tutorial_stage == 2) {
+            _text.text = "Cngratulations! You are now in Stage 2";
+            _text.text += "Stage 2: increase the speed. \n";
+            _text.text += "\t Moving the joystaicks of the controllers forward while holding the Grip buttons.\n";
+            _text.text += "\t This will increase the speed of the plane.\n";
+        } else if (sceneReset.tutorial_stage == 3) {
+            _text.text = "Cngratulations! You are now in Stage 3";
+            _text.text += "Stage 3: decrease the speed. \n";
+            _text.text += "\t Moving the joystaicks of the controllers backward while holding the Grip buttons.\n";
+            _text.text += "\t This will decrease the speed of the plane.\n";
+        } else if (sceneReset.tutorial_stage == 4) {
+            _text.text = "Cngratulations! You are now in Stage 4";
+            _text.text += "Stage 4: turning upward. \n";
+            _text.text += "\t Turn the controllers upward while holding the Grip buttons.\n";
+            _text.text += "\t This will also turn your plan upward.\n";
+        } else if (sceneReset.tutorial_stage == 5) {
+            _text.text = "Cngratulations! You are now in Stage 5";
+            _text.text += "Stage 5: turning downward. \n";
+            _text.text += "\t Turn the controllers downward while holding the Grip buttons.\n";
+            _text.text += "\t This will also turn your plan downward.\n";
+        } else if (sceneReset.tutorial_stage == 6) {
+            _text.text = "Cngratulations! You are now in Stage 6";
+            _text.text += "Stage 6: turning left. \n";
+            _text.text += "\t Turn the controllers leftward while holding the Grip buttons.\n";
+            _text.text += "\t This will also turn your plan to the left.\n";
+        } else if (sceneReset.tutorial_stage == 7) {
+            _text.text = "Cngratulations! You are now in Stage 7";
+            _text.text += "Stage 7: turning right. \n";
+            _text.text += "\t Turn the controllers rightward while holding the Grip buttons.\n";
+            _text.text += "\t This will also turn your plan to the right.\n";
+        }
     }
 
 
@@ -123,10 +172,16 @@ public class PlaneMovement : MonoBehaviour
     {   
         float angle = checkAngle(_bodyTransform.eulerAngles.z);
         if (angle >= 5f && angle < 105f) {
+            if (sceneReset.tutorial_stage == 6) {
+                sceneReset.tutorial_stage  += 1;
+            }
             return -angle / maxAngle * angleChangeMagtitude;
         } 
 
         if (angle >= 255f && angle < 355f) {
+            if (sceneReset.tutorial_stage == 7) {
+                sceneReset.Reset();
+            }
             return -(angle - 360f) / maxAngle * angleChangeMagtitude;
         } 
 
@@ -164,7 +219,9 @@ public class PlaneMovement : MonoBehaviour
                                     - _bodyTransform.eulerAngles.x);
 
         if ((angle >= 0f && angle < 90f) || angle > 350f) {
-
+            if (sceneReset.tutorial_stage == 5) {
+                sceneReset.tutorial_stage  += 1;
+            }
             if (angle < 100f) {
                 angle += 360f;
             }
@@ -174,6 +231,9 @@ public class PlaneMovement : MonoBehaviour
         } 
         
         if (angle >= 220f && angle < 320f) {
+            if (sceneReset.tutorial_stage == 4) {
+                sceneReset.tutorial_stage  += 1;
+            }
             return (angle - 320f) / maxAngle * angleChangeMagtitude;
         }
 

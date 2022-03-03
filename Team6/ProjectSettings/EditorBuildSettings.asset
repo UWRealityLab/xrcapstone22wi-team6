@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Starting_Menu.unity
     guid: bd4cec99750184abd8e0b939e99ba757
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: d79d4775b2cf14794a6896c2626ce2c3
+  - enabled: 1
     path: Assets/Scenes/SampleWholePlane.unity
     guid: 1a2bfb23149fd48739371fa61e00dd7a
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: d79d4775b2cf14794a6896c2626ce2c3
+    path: Assets/Tutorial2.unity
+    guid: e003628c0f74e4123a842147aa6f47e6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7097f94044b2d354286a60b5310c125d, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: b54eef4094a93421fb9c1353ad40eb1b, type: 2}
