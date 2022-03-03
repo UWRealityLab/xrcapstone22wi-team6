@@ -90,9 +90,9 @@ public class PlaneMovement : MonoBehaviour
         } else {
             // we will reset the rotation in Z to 0 gradually
             if (_bodyTransform.eulerAngles.z > 1f && _bodyTransform.eulerAngles.z < 359f) {
-                float angleZ = _bodyTransform.eulerAngles.z - 1f;
+                float angleZ = _bodyTransform.eulerAngles.z - 0.5f;
                 if (_bodyTransform.eulerAngles.z > 180f) {
-                    angleZ = _bodyTransform.eulerAngles.z + 1f;
+                    angleZ = _bodyTransform.eulerAngles.z + 0.5f;
                 }
 
                 _bodyTransform.eulerAngles = new Vector3(_bodyTransform.eulerAngles.x, _bodyTransform.eulerAngles.y, angleZ);
@@ -115,39 +115,39 @@ public class PlaneMovement : MonoBehaviour
             _text.text += "Press \"A\" to enter the exploration mode!";
         } else if (sceneReset.tutorial_stage == 1) {
             _text.text = "We are expected you to seat while playing our game\n";
-            _text.text = "You should also hold the controllers vertically (slightly face upward).\n";
+            _text.text += "You should also hold the controllers vertically (slightly face upward).\n";
             _text.text += "Stage 1: Enter control mode\n";
             _text.text += "\t Hold the Grip buttons for both hands to enter control mode.\n";
             _text.text += "\t The Grip button are used to enter the control mode.\n";
             _text.text += "\t You must bold the Grip buttons if you want to change\n";
             _text.text += "\t the movements of the plane";
         } else if (sceneReset.tutorial_stage == 2) {
-            _text.text = "Cngratulations! You are now in Stage 2";
+            _text.text = "Cngratulations! You are now in Stage 2\n";
             _text.text += "Stage 2: increase the speed. \n";
             _text.text += "\t Moving the joystaicks of the controllers forward while holding the Grip buttons.\n";
             _text.text += "\t This will increase the speed of the plane.\n";
         } else if (sceneReset.tutorial_stage == 3) {
-            _text.text = "Cngratulations! You are now in Stage 3";
+            _text.text = "Cngratulations! You are now in Stage 3\n";
             _text.text += "Stage 3: decrease the speed. \n";
             _text.text += "\t Moving the joystaicks of the controllers backward while holding the Grip buttons.\n";
             _text.text += "\t This will decrease the speed of the plane.\n";
         } else if (sceneReset.tutorial_stage == 4) {
-            _text.text = "Cngratulations! You are now in Stage 4";
+            _text.text = "Cngratulations! You are now in Stage 4\n";
             _text.text += "Stage 4: turning upward. \n";
             _text.text += "\t Turn the controllers upward while holding the Grip buttons.\n";
             _text.text += "\t This will also turn your plan upward.\n";
         } else if (sceneReset.tutorial_stage == 5) {
-            _text.text = "Cngratulations! You are now in Stage 5";
+            _text.text = "Cngratulations! You are now in Stage 5\n";
             _text.text += "Stage 5: turning downward. \n";
             _text.text += "\t Turn the controllers downward while holding the Grip buttons.\n";
             _text.text += "\t This will also turn your plan downward.\n";
         } else if (sceneReset.tutorial_stage == 6) {
-            _text.text = "Cngratulations! You are now in Stage 6";
+            _text.text = "Cngratulations! You are now in Stage 6\n";
             _text.text += "Stage 6: turning left. \n";
             _text.text += "\t Turn the controllers leftward while holding the Grip buttons.\n";
             _text.text += "\t This will also turn your plan to the left.\n";
         } else if (sceneReset.tutorial_stage == 7) {
-            _text.text = "Cngratulations! You are now in Stage 7";
+            _text.text = "Cngratulations! You are now in Stage 7\n";
             _text.text += "Stage 7: turning right. \n";
             _text.text += "\t Turn the controllers rightward while holding the Grip buttons.\n";
             _text.text += "\t This will also turn your plan to the right.\n";
@@ -175,14 +175,14 @@ public class PlaneMovement : MonoBehaviour
             if (sceneReset.tutorial_stage == 6) {
                 sceneReset.tutorial_stage  += 1;
             }
-            return -angle / maxAngle * angleChangeMagtitude;
+            return -angle / maxAngle * angleChangeMagtitude * velocityChangeMagtitude;
         } 
 
         if (angle >= 255f && angle < 355f) {
             if (sceneReset.tutorial_stage == 7) {
                 sceneReset.Reset();
             }
-            return -(angle - 360f) / maxAngle * angleChangeMagtitude;
+            return -(angle - 360f) / maxAngle * angleChangeMagtitude * velocityChangeMagtitude;
         } 
 
         return 0.0f;
@@ -226,7 +226,7 @@ public class PlaneMovement : MonoBehaviour
                 angle += 360f;
             }
 
-            return (angle - 350f) / maxAngle * angleChangeMagtitude;
+            return (angle - 350f) / maxAngle * angleChangeMagtitude * velocityChangeMagtitude;
 
         } 
         
@@ -234,7 +234,7 @@ public class PlaneMovement : MonoBehaviour
             if (sceneReset.tutorial_stage == 4) {
                 sceneReset.tutorial_stage  += 1;
             }
-            return (angle - 320f) / maxAngle * angleChangeMagtitude;
+            return (angle - 320f) / maxAngle * angleChangeMagtitude * velocityChangeMagtitude;
         }
 
         return 0f;
