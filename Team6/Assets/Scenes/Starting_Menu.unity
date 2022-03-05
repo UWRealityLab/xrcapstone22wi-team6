@@ -1595,7 +1595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41a30ddd5dce45f8a933a740b9080c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionReference: {fileID: 0}
+  resetBinding: {fileID: 0}
+  skipBinding: {fileID: 0}
+  tutorial_stage: -1
 --- !u!4 &1256450142
 Transform:
   m_ObjectHideFlags: 0
