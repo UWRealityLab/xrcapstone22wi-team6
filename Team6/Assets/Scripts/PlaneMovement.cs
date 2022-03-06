@@ -108,11 +108,11 @@ public class PlaneMovement : MonoBehaviour
 
         if (sceneReset.tutorial_stage == -1) {
             _text.text = "Speed: " + speed;
-            _text.text += "\nRotations(x, y, z): \n"
-                + _bodyTransform.eulerAngles.x + "°, "
-                + _bodyTransform.eulerAngles.y + "°, "
-                + _bodyTransform.eulerAngles.z + "°";
-            _text.text += "\nPress \"A\" to reset the game!";
+            //_text.text += "\nRotations(x, y, z): \n"
+              //  + _bodyTransform.eulerAngles.x + "°, "
+              //  + _bodyTransform.eulerAngles.y + "°, "
+              //  + _bodyTransform.eulerAngles.z + "°";
+            _text.text += "\n\n\n \t Press \"A\" to Reset";
         } else if (sceneReset.tutorial_stage == 0) {
             _text.text = "Congratulations! Now try to get through all the boxes!\n";
             _text.text += "Coins you have: " + coins + "\n Total coins to collect: " + coins_total;
