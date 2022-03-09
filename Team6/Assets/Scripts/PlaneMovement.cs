@@ -107,80 +107,80 @@ public class PlaneMovement : MonoBehaviour
         _bodyTransform.position += _bodyTransform.forward * Time.deltaTime * speed;
 
         if (sceneReset.tutorial_stage == -1) {
-            _text.text = "Speed: " + speed;
+            _text.text = "           Speed: " + speed;
             //_text.text += "\nRotations(x, y, z): \n"
               //  + _bodyTransform.eulerAngles.x + "°, "
               //  + _bodyTransform.eulerAngles.y + "°, "
               //  + _bodyTransform.eulerAngles.z + "°";
-            _text.text += "\n\n\n \t Press \"A\" to Reset";
+            _text.text += "\n           Press \"A\" to Reset";
         } else if (sceneReset.tutorial_stage == 0) {
             _text.text = "Congratulations! Now try to get through all the boxes!\n";
             _text.text += "Coins you have: " + coins + "\n Total coins to collect: " + coins_total;
-            _text.text += "Speed: " + speed;
-            _text.text += "\nRotations(x, y, z): \n"
-                + _bodyTransform.eulerAngles.x + "°, "
-                + _bodyTransform.eulerAngles.y + "°, "
-                + _bodyTransform.eulerAngles.z + "°";
-            _text.text += "Press \"A\" to reset!\n";
+            _text.text += "\nSpeed: " + speed;
+            //_text.text += "\nRotations(x, y, z): \n"
+              //  + _bodyTransform.eulerAngles.x + "°, "
+              //  + _bodyTransform.eulerAngles.y + "°, "
+              //  + _bodyTransform.eulerAngles.z + "°";
+            _text.text += "\nPress \"A\" to reset!\n";
             _text.text += "Press \"B\" to enter the exploration mode!";
         } else if (sceneReset.tutorial_stage == 1) {
             _text.text = "Please play our game seated. \n";
-            _text.text += "Hold the controllers so the Trigger button faces forward\n";
-            _text.text += "Speed: " + speed;
-            _text.text += "Stage 1: Enter control mode\n";
+            _text.text += "Hold the controllers so the Trigger buttons face forward\n";
+            _text.text += "Speed: " + speed; 
+            _text.text += "\nStage 1: Enter Control Mode\n";
             _text.text += "\t Press and hold the Trigger buttons for both hands to enter control mode.\n";
-            _text.text += "\t The Trigger buttons are used to enter the control mode.\n";
+            _text.text += "\t The Trigger buttons are used to Enter Control Mode.\n";
             _text.text += "\t You must hold the Trigger buttons if you want to change\n";
             _text.text += "\t the movements of the plane";
-            _text.text += "Press \"A\" to reset the tutorial!\n";
+            _text.text += "\nPress \"A\" to reset the tutorial!\n";
             _text.text += "Press \"B\" to enter the explore phase of the tutorial!";
         } else if (sceneReset.tutorial_stage == 2) {
             _text.text = "Speed: " + speed;
-            _text.text += "Congratulations! You are now in Stage 2\n";
+            _text.text += "\nCongratulations! You are now in Stage 2\n";
             _text.text += "Stage 2: increase the speed. \n";
             _text.text += "\t Moving the joystick of the controllers forward while holding the Trigger buttons.\n";
             _text.text += "\t This will increase the speed of the plane.\n";
-            _text.text += "Press \"A\" to reset the tutorial!\n";
+            _text.text += "\nPress \"A\" to reset the tutorial!\n";
             _text.text += "Press \"B\" to enter the explore phase of the tutorial!";
         } else if (sceneReset.tutorial_stage == 3) {
             _text.text = "Speed: " + speed;
-            _text.text += "Congratulations! You are now in Stage 3\n";
+            _text.text += "\nCongratulations! You are now in Stage 3\n";
             _text.text += "Stage 3: decrease the speed. \n";
             _text.text += "\t Moving the joystick of the controllers backward while holding the Trigger buttons.\n";
             _text.text += "\t This will decrease the speed of the plane.\n";
-            _text.text += "Press \"A\" to reset the tutorial!\n";
+            _text.text += "\nPress \"A\" to reset the tutorial!\n";
             _text.text += "Press \"B\" to enter the explore phase of the tutorial!";
         } else if (sceneReset.tutorial_stage == 4) {
             _text.text = "Speed: " + speed;
-            _text.text += "Congratulations! You are now in Stage 4\n";
+            _text.text += "\nCongratulations! You are now in Stage 4\n";
             _text.text += "Stage 4: turning upward. \n";
             _text.text += "\t Turn the controllers upward while holding the Trigger buttons.\n";
             _text.text += "\t This will also turn your plane upward.\n";
-            _text.text += "Press \"A\" to reset the tutorial!\n";
+            _text.text += "\nPress \"A\" to reset the tutorial!\n";
             _text.text += "Press \"B\" to enter the explore phase of the tutorial!";
         } else if (sceneReset.tutorial_stage == 5) {
             _text.text = "Speed: " + speed;
-            _text.text += "Congratulations! You are now in Stage 5\n";
+            _text.text += "\nCongratulations! You are now in Stage 5\n";
             _text.text += "Stage 5: turning downward. \n";
             _text.text += "\t Turn the controllers downward while holding the Trigger buttons.\n";
             _text.text += "\t This will also turn your plane downward.\n";
-             _text.text += "Press \"A\" to reset the tutorial!\n";
+             _text.text += "\nPress \"A\" to reset the tutorial!\n";
             _text.text += "Press \"B\" to enter the explore phase of the tutorial!";
         } else if (sceneReset.tutorial_stage == 6) {
             _text.text = "Speed: " + speed;
-            _text.text += "Congratulations! You are now in Stage 6\n";
+            _text.text += "\nCongratulations! You are now in Stage 6\n";
             _text.text += "Stage 6: turning left. \n";
             _text.text += "\t Turn the controllers leftward while holding the Trigger buttons.\n";
             _text.text += "\t This will also turn your plane to the left.\n";
-             _text.text += "Press \"A\" to reset the tutorial!\n";
+             _text.text += "\nPress \"A\" to reset the tutorial!\n";
             _text.text += "Press \"B\" to enter the explore phase of the tutorial!";
         } else if (sceneReset.tutorial_stage == 7) {
             _text.text = "Speed: " + speed;
-            _text.text += "Congratulations! You are now in Stage 7\n";
+            _text.text += "\nCongratulations! You are now in Stage 7\n";
             _text.text += "Stage 7: turning right. \n";
             _text.text += "\t Turn the controllers rightward while holding the Grip buttons.\n";
             _text.text += "\t This will also turn your plane to the right.\n";
-            _text.text += "Press \"A\" to reset the tutorial!\n";
+            _text.text += "\nPress \"A\" to reset the tutorial!\n";
             _text.text += "Press \"B\" to enter the explore phase of the tutorial!";
         } else if (sceneReset.tutorial_stage == 8 || sceneReset.tutorial_stage == 9) {
             _text.text = "Speed: " + speed;
