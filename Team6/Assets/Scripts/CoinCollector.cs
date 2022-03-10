@@ -20,5 +20,9 @@ public class CoinCollector : MonoBehaviour
         planeMovement.coins += 1;
         Destroy(this.gameObject);
     }
-	
+
+    private void Update()
+    {
+        transform.Rotate(Vector3.forward * 50 * Time.deltaTime, Space.Self);
+    }
 }
