@@ -108,6 +108,7 @@ public class PlaneMovement : MonoBehaviour
 
         if (sceneReset.tutorial_stage == -1) {
             _text.text = "           Speed: " + speed;
+            _text.text += "\n          Coins you have: " + coins;
             //_text.text += "\nRotations(x, y, z): \n"
               //  + _bodyTransform.eulerAngles.x + "°, "
               //  + _bodyTransform.eulerAngles.y + "°, "
@@ -184,7 +185,7 @@ public class PlaneMovement : MonoBehaviour
             _text.text += "Press \"B\" to enter the explore phase of the tutorial!";
         } else if (sceneReset.tutorial_stage == 8 || sceneReset.tutorial_stage == 9) {
             _text.text = "Speed: " + speed;
-            _text.text += "Congratulations! You have collected all of the coins!\n";
+            _text.text += "\nCongratulations! You have collected all of the coins!\n";
             _text.text += "You will jump to the exploration mode shortly\n";
         }
 
